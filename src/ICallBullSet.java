@@ -37,8 +37,19 @@ public class ICallBullSet<K, V extends Number> extends HashMap<K, V> {
         return result;
     }
 
-    Map<K, V> intersection() {
-        return map; // TODO
+    Map<K, V> intersects(Map<K, V> b) {
+        ICallBullSet<K, V> result = new ICallBullSet();
+
+        for (Map.Entry<K, V> m : this.entrySet()) {
+            K k = m.getKey();
+            V va = this.get(k);
+            V vb = b.get(k);
+
+            // set the min(va, vb)
+            Number min = (va.intValue() < vb.intValue()) ? va : vb;
+            result.put(k, (V) min);
+        }
+        return result;
     }
 
     Map<K, V> difference(ICallBullSet<K, V> b) {
@@ -71,9 +82,21 @@ public class ICallBullSet<K, V extends Number> extends HashMap<K, V> {
         return result; // 
     }
 
-    Map<K, V> plus(Map<K, V> b) {
+    Map<K, V> sum(Map<K, V> b) {
         ICallBullSet<K, V> result = new ICallBullSet<>();
-        return result; // TODO
+
+        for (Map.Entry<K, V> m : this.entrySet()) {
+            K k = m.getKey();
+            V va = this.get(k);
+            V vb = b.get(k);
+
+            // Should find the sum between the two sets
+            Number v = va.intValue() + vb.intValue();
+            if (v.intValue() < 0)
+                v = 0;
+            result.put(k, (V) v);
+        }
+        return result;
     }
 
 }

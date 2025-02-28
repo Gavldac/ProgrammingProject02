@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public class Project02 {
 
@@ -60,6 +59,7 @@ public class Project02 {
         set2.put('f', 2);
         set2.put('r', 3);
         set1.put('a', 0);
+        set1.put('b', 1);
         set1.put('c', 5);
         set1.put('r', 2);
 
@@ -74,14 +74,16 @@ public class Project02 {
         System.out.println();
 
         ICallBullSet<Character, Integer> set3 = (ICallBullSet) set1.union(set2);
+        ICallBullSet<Character, Integer> set4 = (ICallBullSet) set1.intersects(set2);
 
         System.out.println("Set1:             " + set1);
         System.out.println("Set2:             " + set2);
 
         System.out.println("set1.union(set2): " + set3);
+        System.out.println("set1.inter(set2): " + set4);
 
         System.out.println("set1.diffr(set2): " +  set1.difference(set2));
-
+        System.out.println("set1.sum(set2):   " +  set1.sum(set2));
 
     }
 }
