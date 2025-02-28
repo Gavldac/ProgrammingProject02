@@ -10,7 +10,7 @@ public class ICallBullSet<K, V extends Number> extends HashMap<K, V> {
 
     Map<K, V> not() {
         ICallBullSet<K, V> result = new ICallBullSet<>();
-
+        
         for (Map.Entry<K, V> m : this.entrySet()) {
             K k = m.getKey();
             V v = this.get(k);
@@ -44,14 +44,10 @@ public class ICallBullSet<K, V extends Number> extends HashMap<K, V> {
             K k = m.getKey();
             V va = this.get(k);
             V vb = b.get(k);
-            if (this.get(k).intValue() > 0 && b.get(k).intValue() > 0) {
-                // set the min(va, vb)
-                Number min = (va.intValue() < vb.intValue()) ? va : vb;
-                result.put(k, (V) min);
-            } else {
-                result.put(k, (V) Integer.valueOf(0)) ;
-            }
 
+            // set the min(va, vb)
+            Number min = (va.intValue() < vb.intValue()) ? va : vb;
+            result.put(k, (V) min);
         }
         return result;
     }
@@ -83,7 +79,7 @@ public class ICallBullSet<K, V extends Number> extends HashMap<K, V> {
         temp1 = (ICallBullSet) this.difference(b); // A - B
         temp2 = (ICallBullSet) b.difference(this); // B - A
         result = (ICallBullSet) temp1.union(temp2);
-        return result; //
+        return result; // 
     }
 
     Map<K, V> sum(Map<K, V> b) {
