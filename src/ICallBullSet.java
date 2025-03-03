@@ -1,6 +1,10 @@
 import java.util.HashMap;
 import java.util.Map;
 
+/*
+ @author revisions by Corbin
+*/
+
 public class ICallBullSet<K, V extends Number> extends HashMap<K, V> {
     private Map<K, V> map;
 
