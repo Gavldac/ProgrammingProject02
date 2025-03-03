@@ -1,17 +1,18 @@
 package net.sourceforge.jFuzzyLogic.test;
 
 import net.sourceforge.jFuzzyLogic.FIS;
-import net.sourceforge.jFuzzyLogic.rule.FuzzyRuleSet;
+import net.sourceforge.jFuzzyLogic.rule.Variable;
 
 /*
  @author Markus
+ @author revisions by Jesus
 */
 
     public class FuzzyLogic{
 
         // declaring needed variables
-        float bobHunger;
-        float fredHunger;
+        double bobHunger;
+        double fredHunger;
         Variable bobV;
         Variable fredV;
         FIS bob;
@@ -42,7 +43,7 @@ import net.sourceforge.jFuzzyLogic.rule.FuzzyRuleSet;
             fred.evaluate();
 
             bobV = bob.getVariable("hunger");
-            fredV = bob.getVariable("hunger");
+            fredV = fred.getVariable("hunger");
 
             bobHunger = bobV.getValue();
             fredHunger = fredV.getValue();
@@ -54,7 +55,7 @@ import net.sourceforge.jFuzzyLogic.rule.FuzzyRuleSet;
         }
 
         public float union(float x,float y){
-            return x*y;
+            return Math.max(x, y);
         }
 
         public float intersection(float x,float y){
