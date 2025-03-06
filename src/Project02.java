@@ -1,6 +1,13 @@
 import java.util.ArrayList;
 import java.util.List;
 
+/* 
+@author ADD YOUR NAME!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+@author ADD YOUR NAME!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+@author revised by Markus
+ 
+*/
+
 public class Project02 {
 
 
@@ -8,6 +15,7 @@ public class Project02 {
 
     public static void main(String[] args) throws Exception {
 
+        FuzzyLogic fuz = new FuzzyLogic(.3, .8);
         ICallBullSet<Character, Integer> set1 = new ICallBullSet<>();
         ICallBullSet<Character, Integer> set2 = new ICallBullSet<>();
 
@@ -84,6 +92,15 @@ public class Project02 {
 
         System.out.println("set1.diffr(set2): " +  set1.difference(set2));
         System.out.println("set1.sum(set2):   " +  set1.sum(set2));
+
+        System.out.println();
+        System.out.println("Fuzzy Logic Testing: ");
+        System.out.println("A = .3");
+        System.out.println("B = .8");
+        System.out.printf("Negation for A: %2.2f\n" , fuz.negation(true) );
+        System.out.printf("Negation for B: %2.2f\n" , fuz.negation(false));
+        System.out.printf("A union B: %2.2f\n" , fuz.union());
+        System.out.printf("A intersection B: %2.2f\n" , fuz.intersection());
 
     }
 }
