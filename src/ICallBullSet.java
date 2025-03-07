@@ -44,7 +44,7 @@ public class ICallBullSet<K, V extends Number> extends HashMap<K, V> {
             K k = m.getKey();
             V v = this.get(k);
 
-            // Damn the ugly casts, should set the all positive values to 0 and all 0s to 1
+            // Damn the ugly casts, should set all positive values to 0 and all 0s to 1
             Number opposite = (v.intValue() > 0) ? Integer.valueOf(0) : Integer.valueOf(1);
             result.put(k, (V) opposite);
         }
@@ -54,7 +54,7 @@ public class ICallBullSet<K, V extends Number> extends HashMap<K, V> {
     /**
      * Returns the union of two sets.
      * Matching items (with a value greater than 0) are found and
-     *  the maximum values of matching items returned for the union.
+     * the maximum values of matching items returned for the union.
      * @param b
      * @return
      */
