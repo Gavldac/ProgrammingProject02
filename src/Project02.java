@@ -10,6 +10,7 @@ import java.util.List;
  * 
 * @author Edwin Casady
 * @author ADD YOUR NAME!!!!!!!!!
+ * @author revised by Jesus
 * @author revised by Markus
 * @author revised by Corbin
 */
@@ -112,6 +113,13 @@ public class Project02 {
         System.out.println("set1.sum(set2):   " +  set1.sum(set2));
 
         System.out.println();
+
+            //----Symetric Difference----
+
+            System.out.println("Symmetric Difference test:");
+            System.out.println("Set1 & Set2 Symmetric Difference: " + set1.symmetricDifference(set2));
+
+            System.out.println();
         System.out.println("Fuzzy Logic Testing: ");
        
         System.out.println("A = " + fuz1.get());
@@ -120,5 +128,33 @@ public class Project02 {
         System.out.printf("Negation for B: %2.2f\n" , fuz2.negation());
         System.out.printf("A union B: %2.2f\n" , fuz1.union(fuz2));
         System.out.printf("A intersection B: %2.2f\n" , fuz1.intersection(fuz2));
+
+        //-----More Fuzzy Logic Testing-------
+            System.out.println(" more Fuzzy Logic Testing:");
+            System.out.println();
+            FuzzyLogic fuzzyZero = new FuzzyLogic(0.0);
+            FuzzyLogic fuzzyOne = new FuzzyLogic(1.0);
+
+            System.out.println("fuzzyZero: " + fuzzyZero.get());
+            System.out.println("fuzzyOne: " + fuzzyOne.get());
+            System.out.println();
+            //testing to show values less than or higher than one are handled
+            FuzzyLogic fuzzyLessThanZero = new FuzzyLogic(-0.5);
+            FuzzyLogic FuzzyAboveOne = new FuzzyLogic(1.5);
+            System.out.println("FuzzyLessThanZero: " + fuzzyLessThanZero.get() + "(initially -0.5)");
+            System.out.println("FuzzyAboveOne: " + FuzzyAboveOne.get() + "(initially 1.5)");
+            System.out.println();
+
+            FuzzyLogic settingFuzzy = new FuzzyLogic(0.3);
+            System.out.println("settingFuzzy before set method: " + settingFuzzy.get());
+            settingFuzzy.set(0.9);
+            System.out.println("settingFuzzy after set method: " + settingFuzzy.get());
+            settingFuzzy.set(-0.4); //testing for the case in which the value is set to a negative
+            System.out.println("settingFuzzy if set negative: " + settingFuzzy.get());
+            settingFuzzy.set(2.0);
+            System.out.println("SettingFuzzy if set higher than 1: " + settingFuzzy.get());
+            System.out.println();
+
+
     }
 }
