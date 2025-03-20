@@ -58,6 +58,8 @@ public class Project02 {
         System.out.println(); // Padding for console output
         System.out.println("Testing set operations on sets of characters and integers\n");
 
+        set1.put('a', 0);
+        set2.put('c', 1);
 
         System.out.println("Set1 init:  " + set1);
         System.out.println("Set1.not(): " + set1.not());
@@ -77,7 +79,8 @@ public class Project02 {
         System.out.println("set1.inter(set2): " + set4);
 
         System.out.println("set1.diffr(set2): " +  set1.difference(set2));
-        System.out.println("set1.sum(set2):   " +  set1.sum(set2));
+        System.out.println("set1.symdf(set2): " +  set1.symmetricDifference(set2));
+        // The Project02 document doesn't req. a sum function for regular sets
 
         System.out.println(); // Padding for console output
         System.out.println("Testing multiset operations on sets of characters and integers\n");

@@ -107,15 +107,16 @@ public class ICallBullSet<K, V extends Number> extends HashMap<K, V> {
     ICallBullSet<K, V> difference(ICallBullSet<K, V> b) {
         ICallBullSet<K, V> result = new ICallBullSet<>();
 
-        for (Map.Entry<K, V> m : map.entrySet()) {
+        for (Map.Entry<K, V> m : this.entrySet()) {
             K k = m.getKey();
-            V va = map.get(k);
-            V vb = b.containsKey(k) ? b.get(k) : (V) Integer.valueOf(0);
+            V va = this.get(k);
+            V vb = b.get(k);
 
+            // Should find the sum between the two sets
             Number v = va.intValue() - vb.intValue();
             if (v.intValue() < 0)
-                v =  0;
-            result.put(k,  (V) v);
+                v = 0;
+            result.put(k, (V) v);
         }
         return result;
     }
